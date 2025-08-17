@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# deployed detail
+constants.ts
+
 # testing
 /coverage
 
