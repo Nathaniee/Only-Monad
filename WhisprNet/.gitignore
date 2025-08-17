@@ -6,7 +6,7 @@
 .pnp.js
 
 # deployed detail
-constants.ts
+lib/constants.ts
 
 # testing
 /coverage
