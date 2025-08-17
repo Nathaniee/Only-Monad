@@ -3,6 +3,9 @@ import Login from '../components/Login'
 import { useMoralis } from 'react-moralis';
 import Header from '../components/Header';
 import Messages from '../components/Messages';
+import { WHISPRNET_CONTRACT_ABI } from "../lib/contractABI";
+import { WHISPRNET_CONTRACT_ADDRESS } from "../lib/constants";
+import PrivateMessenger from "../components/privateMessenger";
 
 
 export default function Home() {
