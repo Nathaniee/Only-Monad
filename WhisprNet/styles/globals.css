@@ -2,7 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Footer styling */
+footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Animated heartbeat for the red heart */
+.heartbeat {
+  animation: pulse 1.2s infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* Monad logo styling */
+.monad-logo {
+  height: 20px;
+  width: auto;
+  vertical-align: middle;
+  animation: float 4s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Background and text styling */
+body {
+  background-color: #330066;
+  color: white;
+}
+
+input, textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+::placeholder {
+  color: #ccc;
 }
