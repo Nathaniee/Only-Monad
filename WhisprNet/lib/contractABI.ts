@@ -16,7 +16,7 @@ export const WHISPRNET_CONTRACT_ABI = [
           { "internalType": "string", "name": "content", "type": "string" },
           { "internalType": "uint256", "name": "timestamp", "type": "uint256" }
         ],
-        "internalType": "struct Echochain.Message[]",
+        "internalType": "struct WhisprNet.Message[]",
         "name": "",
         "type": "tuple[]"
       }

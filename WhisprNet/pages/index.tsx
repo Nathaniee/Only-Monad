@@ -9,6 +9,10 @@ export default function Home() {
   const [messages, setMessages] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const rpcProvider = new ethers.providers.JsonRpcProvider(
+    "https://rpc.thirdweb.com/monad-testnet"
+  );
+
   const checkWalletConnection = async () => {
     if (typeof window.ethereum !== "undefined") {
       const accounts = await window.ethereum.request({ method: "eth_accounts" });
@@ -37,7 +41,12 @@ export default function Home() {
 
   const fetchMessages = async () => {
     try {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const { ethereum } = window;
+      if (!ethereum) {
+        console.error("Ethereum provider not found");
+        return;
+      }
+      const provider = new ethers.providers.Web3Provider(ethereum as any);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
         WHISPRNET_CONTRACT_ADDRESS,
@@ -56,7 +65,12 @@ export default function Home() {
     if (!walletAddress || !message.trim()) return;
     try {
       setLoading(true);
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const { ethereum } = window;
+      if (!ethereum) {
+        console.error("Ethereum provider not found");
+        return;
+      }
+      const provider = new ethers.providers.Web3Provider(ethereum as any);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(
         WHISPRNET_CONTRACT_ADDRESS,
@@ -80,7 +94,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-red-900 via-blue-800 to-red-950 text-white">
+    <main className="flex flex-col items-center justify-center min-h-screen p-4 bg-gradient-to-br from-red-800 via-purple-900 to-blue-950 text-white">
       <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg p-6 w-full max-w-2xl">
         <h1 className="text-3xl font-bold mb-4 text-center text-purple-300">Nathieon Monad Community</h1>
 
